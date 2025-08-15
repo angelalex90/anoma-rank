@@ -1,36 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Anoma Leaderboard</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <header>
     <h1>🏆 Anoma Leaderboard</h1>
+
+    <div class="controls">
+      <input id="query" type="text" placeholder="Search handle e.g. @Alwin" />
+      <button id="searchBtn">Search</button>
+
+      <select id="days">
+        <option value="1">Last 24h</option>
+        <option value="3" selected>Last 3 days</option>
+        <option value="7">Last 7 days</option>
+      </select>
+
+      <select id="limit">
+        <option value="50">Top 50</option>
+        <option value="100" selected>Top 100</option>
+        <option value="200">Top 200</option>
+      </select>
+
+      <button id="refreshBtn">Refresh</button>
+    </div>
+    <p class="note">Live tweets matching <code>@anoma</code> or <code>#anoma</code> (excludes retweets). Score = likes + 2×retweets + replies + quotes.</p>
   </header>
 
   <main>
     <table id="leaderboard">
       <thead>
         <tr>
-          <th>Rank</th>
+          <th>#</th>
           <th>User</th>
           <th>Posts</th>
-          <th>Engagement</th>
+          <th>Likes</th>
+          <th>RT</th>
+          <th>Replies</th>
+          <th>Quotes</th>
+          <th>Score</th>
         </tr>
       </thead>
-      <tbody>
-        <!-- Data will be added by JS -->
-      </tbody>
+      <tbody></tbody>
     </table>
+
+    <div id="status" class="status"></div>
   </main>
 
   <footer>
     <p>Powered by Anoma Yappers 🚀</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>
