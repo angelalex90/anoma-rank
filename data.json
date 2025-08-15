@@ -1,0 +1,29 @@
+[
+  {
+    "handle": "@Alwin",
+    "posts": 12,
+    "likes": 210,
+    "retweets": 70,
+    "replies": 18,
+    "quotes": 5,
+    "updated_at": "2025-08-15"
+  },
+  {
+    "handle": "@CryptoNinja",
+    "posts": 9,
+    "likes": 150,
+    "retweets": 65,
+    "replies": 8,
+    "quotes": 3,
+    "updated_at": "2025-08-15"
+  },
+  {
+    "handle": "@AnomaFan",
+    "posts": 7,
+    "likes": 110,
+    "retweets": 30,
+    "replies": 6,
+    "quotes": 2,
+    "updated_at": "2025-08-15"
+  }
+]
