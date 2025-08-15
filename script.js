@@ -1,4 +1,3 @@
-// Dummy data for now — later will connect to Twitter API
 const users = [
   { name: "@Alwin", posts: 12, engagement: 340 },
   { name: "@CryptoNinja", posts: 9, engagement: 280 },
@@ -6,7 +5,6 @@ const users = [
   { name: "@BlockDev", posts: 5, engagement: 120 },
 ];
 
-// Sort by engagement (descending)
 users.sort((a, b) => b.engagement - a.engagement);
 
 const tbody = document.querySelector("#leaderboard tbody");
