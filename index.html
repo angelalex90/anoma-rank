@@ -2,36 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Anoma Leaderboard</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Anoma Rank Checker</title>
   <link rel="stylesheet" href="/style.css" />
+  <meta name="description" content="Public Anoma rank checker — search your Twitter handle and see your rank." />
 </head>
 <body>
-  <header>
-    <h1>🏆 Anoma Leaderboard</h1>
+  <header class="header">
+    <h1>🏆 Anoma Rank Checker</h1>
+    <p class="sub">Type your Twitter handle and see your rank. Data from JSON or a Google Sheet.</p>
 
     <div class="controls">
-      <input id="query" type="text" placeholder="Search handle e.g. @Alwin" />
+      <input id="query" type="text" placeholder="Search handle (e.g. @Alwin)" />
       <button id="searchBtn">Search</button>
 
       <select id="days">
         <option value="1">Last 24h</option>
         <option value="3" selected>Last 3 days</option>
         <option value="7">Last 7 days</option>
-      </select>
-
-      <select id="limit">
-        <option value="50">Top 50</option>
-        <option value="100" selected>Top 100</option>
-        <option value="200">Top 200</option>
+        <option value="30">Last 30 days</option>
       </select>
 
       <button id="refreshBtn">Refresh</button>
     </div>
-    <p class="note">Live tweets matching <code>@anoma</code> or <code>#anoma</code> (excludes retweets). Score = likes + 2×retweets + replies + quotes.</p>
+
+    <p class="note">
+      Score = <code>likes + 2×retweets + replies + quotes</code>.  
+      <span id="sourceTag">Source: <code>data/anoma.json</code></span>
+    </p>
   </header>
 
-  <main>
+  <main class="container">
+    <div class="summary">
+      <div><strong id="totalUsers">0</strong><span>Users</span></div>
+      <div><strong id="totalPosts">0</strong><span>Posts</span></div>
+      <div><strong id="lastUpdated">—</strong><span>Last Updated</span></div>
+    </div>
+
     <table id="leaderboard">
       <thead>
         <tr>
@@ -49,10 +56,21 @@
     </table>
 
     <div id="status" class="status"></div>
+
+    <section class="howto">
+      <h2>How to update data (no API)</h2>
+      <ol>
+        <li><strong>JSON way:</strong> Edit <code>data/anoma.json</code> in GitHub → Commit → Vercel auto-deploy.</li>
+        <li><strong>Google Sheet way:</strong> Make a sheet with columns: <code>handle,posts,likes,retweets,replies,quotes,updated_at</code>. Publish to web as CSV and open site like:<br />
+          <code>https://your-site.vercel.app/?sheet=YOUR_SHEET_ID</code>
+        </li>
+      </ol>
+      <p class="tip">Tip: Keep <code>handle</code> like <code>@username</code>. Dates in <code>updated_at</code> are optional (ISO or any text).</p>
+    </section>
   </main>
 
-  <footer>
-    <p>Powered by Anoma Yappers 🚀</p>
+  <footer class="footer">
+    <p>Made for Anoma Yappers 🚀</p>
   </footer>
 
   <script src="/script.js"></script>
